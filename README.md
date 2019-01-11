@@ -31,7 +31,7 @@ $ npm install builder-cins
 
 ```sh
 $ feflow dev      # 本地开发时的命令
-$ feflow build    # 发布时的打包命令, 打出的包在工程的public目录, 包含 cdn, webserver 和 offline 三个文件夹
+$ feflow build    # 发布时的打包命令
 ```
 
 ## 未来优化

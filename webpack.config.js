@@ -7,8 +7,8 @@ const webpackDevServer = require("webpack-dev-server");
 const projectPath = process.cwd()
 
 module.exports = ({
-    mode = "production",
-}) => ({
+                      mode = "production",
+                  }) => ({
     mode,
     entry: path.join(process.cwd(), 'src/index'),
     output: {
@@ -17,26 +17,26 @@ module.exports = ({
     },
     module: {
         rules: [
-        	{
-              test: /\.(js|jsx)$/,
-              exclude: /node_modules/,
-              loader: "babel-loader",
-              query:
-                {
-                  presets:['@babel/react'],
-                  plugins: [
-                    [  "import",{libraryName: "antd", style: 'css'}] // antd按需加载
-                  ]
-                }
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                loader: "babel-loader",
+                query:
+                    {
+                        presets:['@babel/react'],
+                        plugins: [
+                            [  "import",{libraryName: "antd", style: 'css'}] // antd按需加载
+                        ]
+                    }
             },
             {
-	            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/], 
-	            loader: require.resolve('url-loader'),
-	            options: {
-	              limit: 10000,
-	              name: 'static/media/[name].[hash:8].[ext]',
-	            },
-          	},
+                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: 'static/media/[name].[hash:8].[ext]',
+                },
+            },
             {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
@@ -63,4 +63,4 @@ module.exports = ({
         }),
     ]
 })
-			
+
